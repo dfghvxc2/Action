@@ -1,4 +1,4 @@
-library(dplyr)
+
 library(readxl)
 library(writexl)
 df_original <- read_excel("2021-07-15g09.25.44.670_SPID582_ID1464.xlsx")
@@ -27,7 +27,7 @@ for (i in 1:ilosc_rzedow){
   koncowy_wektor <- as.numeric(as.vector(t(slice(df,c(c)))))
   
   do_wyrzucenia <- unname(boxplot.stats(koncowy_wektor)$out)
-  koncowy_wektor <- koncowy_wektor[! koncowy_wektor %in% do_wyrzucenia] #problem z operatorem != w pêtli (tutaj dzia³a dobrze)
+  koncowy_wektor <- koncowy_wektor[! koncowy_wektor %in% do_wyrzucenia] #problem z operatorem != w pÄ™tli (tutaj dziaÅ‚a dobrze)
   
   do_macierzy <- append(do_macierzy, c(df_index[[d,1]],mean(koncowy_wektor)))
   
